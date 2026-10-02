@@ -10,21 +10,40 @@
     <name>fxmagazin</name>
 
     <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.12.1</junit.version>
+        <javafx.platform>win</javafx.platform> <!-- CETTE LIGNE FORCE TOUT EN VERSION WINDOWS INTEL -->
     </properties>
 
     <dependencies>
+        <!-- 1. Modules JavaFX configurés pour Windows -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21.0.6</version>
+            <classifier>win</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>21.0.6</version>
+            <classifier>win</classifier>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>21.0.6</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>21.0.6</version>
+            <classifier>win</classifier>
+        </dependency>
+
+        <!-- 2. Votre librairie ValidatorFX -->
         <dependency>
             <groupId>net.synedra</groupId>
             <artifactId>validatorfx</artifactId>
@@ -36,19 +55,22 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- 3. Vos tests JUnit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
+            <version>5.12.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
+            <version>5.12.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
